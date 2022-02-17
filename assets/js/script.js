@@ -1,66 +1,65 @@
-/**
- * Code that loads when the DOM content has finished loading
- */
-
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
 
-    for (let button of buttons){
-        button.addEventListener("click", function() {
-            if (this.getAttribute("data-type") === "submit") {
-                checkAnswer();
+    for(let button of buttons){
+        button.addEventListener("click", function(){
+            if (this.getAttribute("data-type") === "start-game"){
+                runLevelOne();
             } else {
-                levelOne();
+                getUserAnswer();
             }
         })
     }
+
+    // Allowing the user to submit the answer from either slot four or five with the enter key
+    document.getElementById("slot-four").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            getUserAnswer()
+        }
+    })
+
+    document.getElementById("slot-five").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            getUserAnswer();
+        }
+    })
+
+    runLevelOne();
+
 })
 
-function runGame() {
+/**
+ * Runs the Level one version of the game
+ */
+function runLevelOne() {
 
+    document.getElementById("level").innerText = '1';
 
-    let i = 1;
-    let level = parseInt(document.getElementById("level").innerText);
-    document.getElementById("level").innerText = i.valueOf;
+    let num1 = Math.floor(Math.random() * 3) + 1;
+    let num2 = Math.floor(Math.random() * 3) + 1;
 
+    let levelOneArray = new Array(5);
 
-    while (i < 6) {
+    levelOneArray[0] = num1;
+    levelOneArray[1] = num1 + num2;
+    levelOneArray[2] = levelOneArray[1] + num2;
+    levelOneArray[3] = levelOneArray[2] + num2;
+    levelOneArray[4] = levelOneArray[3] + num2;
 
-        if (i = 1) {
-            let levelArray = [1, 2, 3, 4, 5]
-            levelOne(levelArray);
-            button.addEventListener("click", function() {
-                if (this.getAttribute("data-type") === "submit") {
-                    checkAnswer(levelArray);
-                }
-            })
-        } else {
-            console.log("We're not ready for level 2 yet!");
-            i++
-        }
-    }
-}
+    document.getElementById("slot-one").innerText = levelOneArray[0];
+    document.getElementById("slot-two").innerText = levelOneArray[1];
+    document.getElementById("slot-three").innerText = levelOneArray[2];
 
-function checkAnswer(levelArray) {
-
-    console.log(levelArray[3]);
-
-    // let userNumberOne = parseInt(document.getElementById("slot-four").value);
-    // let userNumberTwo = parseInt(document.getElementById("slot-five").value);
-
-    // if (userNumberOne === levelArray[3] && userNumberTwo === levelArray[4]) {
-    //     alert("Correct let's move up a level")
-    // } else {
-    //     alert(`Sorry, but you got it wrong, the answers were ${levelArray[3]} and ${levelArray[4]}.`);
-    // }
-}
-
-function levelOne(levelArray) {
-
-    document.getElementById("slot-one").innerText = levelArray[0];
-    document.getElementById("slot-two").innerText = levelArray[1];
-    document.getElementById("slot-three").innerText = levelArray[2];
     
-    document.getElementById("slot-four").focus;
+}
+
+/**
+ * Collects the users inputs and populates an array with them
+ */
+function getUserAnswer() {
+
+    let usersAnswers = new Array(2)
+    usersAnswers[0] = parseInt(document.getElementById("slot-four").value);
+    usersAnswers[1] = parseInt(document.getElementById("slot-five").value);
 
 }
