@@ -14,7 +14,7 @@
             <h1 id="page-title">Code Cracker</h1>
             <h2 class="headline">Can you complete the code?</h2>
             <h3 class="intro">Instructions</h3>
-            <p class="intro">The computer will generate a sequence of numbers from 1 to 5. It can only use each number once per round.
+            <p class="intro">The computer will generate number sequence, it could be multiples of 2 for example.
                 <br>
                 <br>
             For level 1 there will be one break in the code for you to work out the missing number. For level 2 there will be 2
@@ -29,6 +29,7 @@
     <section id="game=play-section">
         <div id="game-board">
             
+            <button data-type="start-game" id="start-button">Click To Start Game</button>
             <div id="number-input-section">
                 <div id="slot-one" class="number-input">X</div>
                 <div id="slot-two" class="number-input">X</div>
@@ -37,17 +38,8 @@
                 <div id="slot-five" class="number-input">X</div>
             </div>
 
-            <h3 class="instruction">Click the button(s) below in order or type using your keyboard</h3>
-            <div id="number-button-section">
-                <button id="num-one" class="number-button">1</button>
-                <button id="num-two" class="number-button">2</button>
-                <button id="num-three" class="number-button">3</button>
-                <button id="num-four" class="number-button">4</button>
-                <button id="num-five" class="number-button">5</button>
-            </div>
-
             <div id="check-answer-wrapper">
-                <button id="submit-answer">Test Combination</button>
+                <button data-type="submit" id="submit-answer">Test Combination</button>
             </div>
         </div>
     </section>

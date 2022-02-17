@@ -31,12 +31,12 @@ body {
 /* Game Play Section Styles */
 
 #game-board {
-    background-color: #deb887;
+    background-color: #472d0a;
     width: 90%;
-    height: 60%;
+    height: 65%;
     max-width: 750px;
-    max-height: 500px;
-    padding: 30px;
+    max-height: 530px;
+    padding: 15px;
     margin-top: 2px;
     margin-left: auto;
     margin-right: auto;
@@ -67,36 +67,20 @@ body {
     background-color: #ffffff;
     color: #000000;
     float: left;
-    border: 2px solid #deb887;
+    border: 2px solid #472d0a;
     line-height: 90px;
     margin-left: auto;
     margin-right: auto;
     font-size: x-large;
 }
 
-#number-button-section {
-    width: 100%;
-    height: 30vh;
-    max-height: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 25px;
-    box-sizing: border-box;
-}
-
-.number-button {
-    width:15%;
-    max-width: 50px;
-    height: 80px;
-    box-sizing: border-box;
-    font-family: 'Space Mono', monospace;
-}
-
-#submit-answer {
-    width: 50%;
+#submit-answer, #start-button {
+    width: 75%;
     max-width: 150px;
-    height: 80px;
+    height: 70px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
     font-family: 'Space Mono', monospace;
 }
