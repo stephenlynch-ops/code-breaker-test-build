@@ -74,6 +74,10 @@ body {
     font-size: x-large;
 }
 
+input {
+    text-align: center;
+}
+
 #submit-answer, #start-button {
     width: 75%;
     max-width: 150px;
