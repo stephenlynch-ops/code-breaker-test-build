@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function runGame(number) {
 
-    let ranNumOne = Math.floor(Math.random() * number) + 1;
-    let ranNumTwo = Math.floor(Math.random() * number) + 1;
+    let ranNumOne = Math.floor(Math.random() * 10) + 1;
+    let ranNumTwo = number;
 
     console.log("Ran Num 1",ranNumOne);
-    console.log("Ran Num 2", ranNumTwo);
+    console.log("Increasing By: ", ranNumTwo);
 
     let levelArray = new Array(5);
     
@@ -34,7 +34,7 @@ function runGame(number) {
     levelArray[3] = levelArray[2] + ranNumTwo;
     levelArray[4] = levelArray[3] + ranNumTwo;
 
-    console.log("Level Array", levelArray);
+    // console.log("Level Array", levelArray);
 
     document.getElementById("slot-one").innerText = levelArray[0];
     document.getElementById("slot-two").innerText = levelArray[1];
@@ -54,7 +54,7 @@ function runGame(number) {
  */
 function levelOne() {
     
-    var number = 3;
+    var number = 2;
     runGame(number);
 
 }
@@ -64,7 +64,7 @@ function levelOne() {
  */
 function levelTwo() {
     
-    var number = 5;
+    var number = 3;
     runGame(number);
 
 }
@@ -74,7 +74,7 @@ function levelTwo() {
  */
 function levelThree() {
     
-    var number = 7;
+    var number = 4;
     runGame(number);
 
 }
@@ -84,7 +84,7 @@ function levelThree() {
  */
 function levelFour() {
     
-    var number = 9;
+    var number = 5;
     runGame(number);
 
 }
@@ -92,12 +92,73 @@ function levelFour() {
 /**
  * Level Five Number Criteria
  */
-function levelFive() {
+ function levelFive() {
+    
+    var number = 6;
+    runGame(number);
+
+}
+
+/**
+ * Level Six Number Criteria
+ */
+ function levelSix() {
+    
+    var number = 7;
+    runGame(number);
+
+}
+
+/**
+ * Level Seven Number Criteria
+ */
+ function levelSeven() {
+    
+    var number = 8;
+    runGame(number);
+
+}
+
+/**
+ * Level Eight Number Criteria
+ */
+ function levelEight() {
+    
+    var number = 9;
+    runGame(number);
+
+}
+
+/**
+ * Level Nine Number Criteria
+ */
+ function levelNine() {
+    
+    var number = 10;
+    runGame(number);
+
+}
+
+/**
+ * Level Ten Number Criteria
+ */
+ function levelTen() {
     
     var number = 11;
     runGame(number);
 
 }
+
+/**
+ * Level Eleven Number Criteria
+ */
+ function levelEleven() {
+    
+    var number = 12;
+    runGame(number);
+
+}
+
 
 function collectUsersAnswers(missingNums) {
 
@@ -120,25 +181,43 @@ function collectUsersAnswers(missingNums) {
                 alert(`You got it wrong, the correct answers were ${missingNums[0]} and ${missingNums[1]}. Better luck next time`)
             }
 
+            clearOldAnswers();
+
             levelUpdate();
     }
 }
 
 function levelUpdate() {
 
-    
+    let level = parseInt(document.getElementById("level").innerText);
+    let newLevel = ++level;
 
-    let level = 1;
-    let newLevel = level++
+    document.getElementById("level").innerText = newLevel;
+
+    console.log("New Level", newLevel);
 
     if (newLevel = 2) {
         levelTwo();
     } else if (newLevel = 3) {
         levelThree();
-    } else if (newLevel = 3) {
+    } else if (newLevel = 4) {
         levelFour();
-    } else {
+    } else if (newLevel = 5) {
         levelFive();
+    } else if (newLevel = 6) {
+        levelSix();
+    } else if (newLevel = 7) {
+        levelSeven();
+    } else if (newLevel = 8) {
+        levelEight();
+    } else if (newLevel = 9) {
+        levelNine();
+    } else if (newLevel = 10) {
+        levelTen();
+    } else if (newLevel = 11) {
+        levelEleven();
+    } else {
+        alert(`You have finished the game. Well done!`);
     }
 }
 
