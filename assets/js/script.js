@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let newGameNumber = ++game;
     document.getElementById("game-level").innerText = newGameNumber;
 
-    var userName = prompt("Please enter you game name", "Anon");
+    getPlayerName();
     
     let buttons = document.getElementsByTagName("button");
 
@@ -123,7 +123,7 @@ function clearOldAnswers() {
 /**
  * This is the reset function that gives the user the option to reset the game
  */
-function resetGame(gameNumber) {
+function resetGame() {
     
     let warning = "Confirm RESET game request - NOTE: This will reset your game numbers as well";
 
@@ -140,15 +140,15 @@ function resetGame(gameNumber) {
  * This is the general reset function that is called when the player fails a level
  * or if the user clicks the reset game button.
  */
-function gameFailed(gameNumber) {
+function gameFailed() {
     clearOldAnswers();
 
-    let finishedLevel = parseInt(document.getElementById("level").innerText);
+    updateLeaderBoard();
+
+    getPlayerName();
 
     document.getElementById("level").innerText = 1;
     document.getElementById("slot-four").focus();
-
-    updateLeaderBoard(finishedLevel);
 
     let game = parseInt(document.getElementById("game-level").innerText);
     let newGameNumber = ++game;
@@ -157,8 +157,22 @@ function gameFailed(gameNumber) {
     runGame();
 }
 
-function updateLeaderBoard(userName, finishedLevel) {
+function getPlayerName() {
 
+    var userName = prompt("Please enter you game name", "Anon");
+    document.getElementById("player-name").innerText = userName;
 
+}
 
+function updateLeaderBoard() {
+
+    let game = parseInt(document.getElementById("game-level").innerText);
+    let playerName = document.getElementById("player-name").innerText;
+    let levelCompleted = parseInt(document.getElementById("level").innerText);
+
+    console.log("Game Number:", game);
+    console.log("Players Name:", playerName);
+    console.log("Level Reached:", levelCompleted);
+
+    
 }
