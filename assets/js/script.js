@@ -1,9 +1,5 @@
 
 document.addEventListener("DOMContentLoaded", function() { 
-    
-    let game = 0;
-    let newGameNumber = ++game;
-    document.getElementById("game-level").innerText = newGameNumber;
 
     getPlayerName();
     
@@ -128,7 +124,6 @@ function resetGame() {
     let warning = "Confirm RESET game request - NOTE: This will reset your game numbers as well";
 
     if (confirm(warning) == true) {
-        document.getElementById("game-level").innerText = 0;
         gameFailed();
     } else {
         alert(`Reset request cancelled`);
@@ -150,10 +145,6 @@ function gameFailed() {
     document.getElementById("level").innerText = 1;
     document.getElementById("slot-four").focus();
 
-    let game = parseInt(document.getElementById("game-level").innerText);
-    let newGameNumber = ++game;
-    document.getElementById("game-level").innerText = newGameNumber;
-
     runGame();
 }
 
@@ -166,13 +157,17 @@ function getPlayerName() {
 
 function updateLeaderBoard() {
 
-    let game = parseInt(document.getElementById("game-level").innerText);
     let playerName = document.getElementById("player-name").innerText;
     let levelCompleted = parseInt(document.getElementById("level").innerText);
 
-    console.log("Game Number:", game);
-    console.log("Players Name:", playerName);
-    console.log("Level Reached:", levelCompleted);
+    // console.log("Players Name:", playerName);
+    // console.log("Level Reached:", levelCompleted);
 
+    var table = document.getElementById("game-history");
+    var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = playerName;
+    cell2.innerHTML = levelCompleted;
     
 }

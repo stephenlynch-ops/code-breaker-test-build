@@ -44,8 +44,7 @@ body {
 }
 
 .board-headline {
-    width: 50%;
-    float: left;
+    width: 100%;
 }
 
 #number-input-section {
@@ -97,7 +96,7 @@ input {
 
 /* Leaderboard Section Styles */
 
-#leader-board {
+#game-history {
     margin-top: 15px;
     box-sizing: border-box;
     width: 80%;
@@ -120,14 +119,10 @@ td {
     height: 25px;
 }
 
-.rank {
-    width: 15%;
-}
-
-.name {
-    width: 60%;
+.player-name {
+    width: 70%;
 }
 
 .level-completed {
-    width: 25%;
+    width: 30%;
 }
