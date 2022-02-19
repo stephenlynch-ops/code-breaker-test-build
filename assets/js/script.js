@@ -1,5 +1,12 @@
 
 document.addEventListener("DOMContentLoaded", function() { 
+    
+    let game = 0;
+    let newGameNumber = ++game;
+    document.getElementById("game-level").innerText = newGameNumber;
+
+    var userName = prompt("Please enter you game name", "Anon");
+    
     let buttons = document.getElementsByTagName("button");
 
     for(let button of buttons){
@@ -116,11 +123,12 @@ function clearOldAnswers() {
 /**
  * This is the reset function that gives the user the option to reset the game
  */
-function resetGame() {
+function resetGame(gameNumber) {
     
-    let warning = "Confirm RESET game request";
+    let warning = "Confirm RESET game request - NOTE: This will reset your game numbers as well";
 
     if (confirm(warning) == true) {
+        document.getElementById("game-level").innerText = 0;
         gameFailed();
     } else {
         alert(`Reset request cancelled`);
@@ -132,11 +140,25 @@ function resetGame() {
  * This is the general reset function that is called when the player fails a level
  * or if the user clicks the reset game button.
  */
-function gameFailed() {
+function gameFailed(gameNumber) {
     clearOldAnswers();
+
+    let finishedLevel = parseInt(document.getElementById("level").innerText);
 
     document.getElementById("level").innerText = 1;
     document.getElementById("slot-four").focus();
 
+    updateLeaderBoard(finishedLevel);
+
+    let game = parseInt(document.getElementById("game-level").innerText);
+    let newGameNumber = ++game;
+    document.getElementById("game-level").innerText = newGameNumber;
+
     runGame();
+}
+
+function updateLeaderBoard(userName, finishedLevel) {
+
+
+
 }

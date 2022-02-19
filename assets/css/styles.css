@@ -43,11 +43,9 @@ body {
     box-sizing: border-box;
 }
 
-.instruction {
-    margin: 0px;
-    line-height: 30px;
-    text-align: center;
-    margin-bottom: 25px;
+.board-headline {
+    width: 50%;
+    float: left;
 }
 
 #number-input-section {
@@ -74,11 +72,19 @@ body {
     font-size: x-large;
 }
 
+.number-input::placeholder {
+    font-size: small;
+}
+
 input {
     text-align: center;
 }
 
-#submit-answer, #start-button {
+#reset-button {
+    margin: 10px;
+}
+
+#submit-answer {
     width: 75%;
     max-width: 150px;
     height: 70px;
@@ -108,6 +114,10 @@ table, th, td {
 
 th {
     font-size: small;
+}
+
+td {
+    height: 25px;
 }
 
 .rank {

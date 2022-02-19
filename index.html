@@ -14,28 +14,21 @@
             <h1 id="page-title">Code Cracker</h1>
             <h2 class="headline">Can you complete the code?</h2>
             <h3 class="intro">Instructions</h3>
-            <p class="intro">The computer will generate number sequence, it could be multiples of 2 for example.
-                <br>
-                <br>
-            For level 1 there will be one break in the code for you to work out the missing number. For level 2 there will be 2
-                missing numbers and so on.
-                <br>
-                <br>
-            If you can complete the game you can put yourself on the leaderboard.</p>
-            <br>
+            <p class="intro">Using the first three numbers as a guide, you need to identify the last two numbers to complete the code.</p>               
         </div>
     </section>
 
     <section id="game=play-section">
         <div id="game-board">
             
-            <h2 class="headline">Level: <span id="level">1</span></h2>
+            <h2 class="board-headline">Game No: <span id="game-level">1</span></h2>
+            <h2 class="board-headline">Level: <span id="level">1</span></h2>
             <div id="number-input-section">
                 <div id="slot-one" class="number-input">X</div>
                 <div id="slot-two" class="number-input">X</div>
                 <div id="slot-three" class="number-input">X</div>
-                <input id="slot-four" class="number-input" type="number"></input>
-                <input id="slot-five" class="number-input" type="number"></input>
+                <input id="slot-four" class="number-input" type="number" placeholder="1st No."></input>
+                <input id="slot-five" class="number-input" type="number" placeholder="2nd No."></input>
             </div>
 
             <div id="check-answer-wrapper">
@@ -49,36 +42,37 @@
     </section>
 
     <section id="leader-board-section">
+        <h2 class="headline">Game History</h2>
         <table id="leader-board">
             <tr>
-                <th class="rank">Rank</th>
+                <th class="rank">Game No.</th>
                 <th class="player-name">Player Name</th>
                 <th class="level-completed">Level Completed</th>
             </tr>
             <tr>
-                <td class="rank">1st</td>
-                <td class="player-name"></td>
-                <td class="level-completed"></td>
+                <td class="rank">1</td>
+                <td id="first-game-name" class="player-name"></td>
+                <td id="first-game-level" class="level-completed"></td>
             </tr>
             <tr>
-                <td class="rank">2nd</td>
-                <td class="player-name"></td>
-                <td class="level-completed"></td>
+                <td class="rank">2</td>
+                <td id="second-game-name" class="player-name"></td>
+                <td id="second-game-level" class="level-completed"></td>
             </tr>
             <tr>
-                <td class="rank">3rd</td>
-                <td class="player-name"></td>
-                <td class="level-completed"></td>
+                <td class="rank">3</td>
+                <td id="third-game-name" class="player-name"></td>
+                <td id="third-game-level" class="level-completed"></td>
             </tr>
             <tr>
-                <td class="rank">4th</td>
-                <td class="player-name"></td>
-                <td class="level-completed"></td>
+                <td class="rank">4</td>
+                <td id="fourth-game-name" class="player-name"></td>
+                <td id="fourth-game-level" class="level-completed"></td>
             </tr>
             <tr>
-                <td class="rank">5th</td>
-                <td class="player-name"></td>
-                <td class="level-completed"></td>
+                <td class="rank">5</td>
+                <td id="fifth-game-name" class="player-name"></td>
+                <td id="fifth-game-level" class="level-completed"></td>
             </tr>
         </table>
     </section>
