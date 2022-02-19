@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     }
 
+    document.getElementById("slot-three").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            collectUsersAnswers();
+        }
+    })
     document.getElementById("slot-four").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             collectUsersAnswers();
@@ -27,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
     document.getElementById("level").innerText = 1;
-    document.getElementById("slot-four").focus();
+    document.getElementById("slot-three").focus();
 
     runGame();
 })
@@ -38,23 +43,13 @@ document.addEventListener("DOMContentLoaded", function() {
  */
 function runGame() {
 
-    console.log("---------------------New Game-------------------------");
     // Get the level number to calculate the required clues   
     let level = parseInt(document.getElementById("level").innerText);
     let levelNum = ++level;
 
-    console.log("Start No:", level);
-    console.log("Adding this each time:", levelNum);
-
     document.getElementById("slot-one").innerText = level;
     document.getElementById("slot-two").innerText = level + levelNum;
-    document.getElementById("slot-three").innerText = parseInt(document.getElementById("slot-two").innerText) + levelNum;
-
-    let slotFourExpected = level + (levelNum * 3);
-    let slotFiveExpected = slotFourExpected + levelNum;
-
-    console.log("Slor Four Expected ", slotFourExpected);
-    console.log("Slor Five Expected ", slotFiveExpected);
+    
 }
 
 /**
@@ -69,25 +64,24 @@ function collectUsersAnswers() {
     let level = parseInt(document.getElementById("level").innerText);
     let levelNum = ++level;
 
-    console.log("CUA Start No.:", level);
-    console.log("CUA increase by:",levelNum);
-
-    let slotFourCorrect = level + (levelNum * 3);
+    let slotThreeCorrect = level + (levelNum * 2);
+    let slotFourCorrect = slotThreeCorrect + levelNum;
     let slotFiveCorrect = slotFourCorrect + levelNum;
 
     // Collect the users answer for comparison
 
+    let slotThreeUserAnswer = parseInt(document.getElementById("slot-three").value);
     let slotFourUserAnswer = parseInt(document.getElementById("slot-four").value);
     let slotFiveUserAnswer = parseInt(document.getElementById("slot-five").value);
 
-        if ((document.getElementById("slot-four").value) == "" || (document.getElementById("slot-five").value) == "") {
+        if ((document.getElementById("slot-three").value) == "" || (document.getElementById("slot-four").value) == "" || (document.getElementById("slot-five").value) == "" ){
             throw `User failed to complete the code. Aborting!`;
-        } else if (slotFourCorrect === slotFourUserAnswer && slotFiveCorrect === slotFiveUserAnswer) {
+        } else if (slotThreeCorrect === slotThreeUserAnswer && slotFourCorrect === slotFourUserAnswer && slotFiveCorrect === slotFiveUserAnswer) {
             alert(`Thats correct. Well done. Lets move on to level ${levelNum}.`);
             clearOldAnswers();
             levelUpdate();
         } else {
-            alert(`Sorry thats not correct. The correct asnswers were ${slotFourCorrect} and ${slotFiveCorrect}.`)
+            alert(`Sorry thats not correct. The correct asnswers were ${slotThreeCorrect} , ${slotFourCorrect} and ${slotFiveCorrect}.`)
             gameFailed();
         }    
 }
@@ -102,8 +96,6 @@ function levelUpdate() {
     let newLevel = ++level;
 
     document.getElementById("level").innerText = newLevel;
-
-    console.log("New Level", newLevel);
     
     runGame();
 }
@@ -112,8 +104,11 @@ function levelUpdate() {
  * This clears any old answers from the input boxes prior to a new game / level
  */
 function clearOldAnswers() {
+
+    document.getElementById("slot-three").value = "";
     document.getElementById("slot-four").value = "";
     document.getElementById("slot-five").value = "";
+
 }
 
 /**
@@ -143,7 +138,7 @@ function gameFailed() {
     getPlayerName();
 
     document.getElementById("level").innerText = 1;
-    document.getElementById("slot-four").focus();
+    document.getElementById("slot-three").focus();
 
     runGame();
 }
