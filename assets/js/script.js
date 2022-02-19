@@ -23,7 +23,7 @@ function runGame(number) {
     let ranNumOne = Math.floor(Math.random() * 10) + 1;
     let ranNumTwo = number;
 
-    console.log("Ran Num 1",ranNumOne);
+    // console.log("Ran Num 1",ranNumOne);
     console.log("Increasing By: ", ranNumTwo);
 
     let levelArray = new Array(5);
@@ -170,10 +170,10 @@ function collectUsersAnswers(missingNums) {
         if ((document.getElementById("slot-four").value) == "" || (document.getElementById("slot-five").value) == "") {
             throw `User failed to complete the code. Aborting!`;
         } else {
-            console.log("User Answers", usersAnswers[0]);
-            console.log("User Answers", usersAnswers[1]);
+            // console.log("User Answers", usersAnswers[0]);
+            // console.log("User Answers", usersAnswers[1]);
 
-            console.log("Users Ans Array", usersAnswers);
+            // console.log("Users Ans Array", usersAnswers);
 
             if (missingNums = usersAnswers) {
                 alert(`You got it right, lets move on to the next level`);
@@ -196,25 +196,25 @@ function levelUpdate() {
 
     console.log("New Level", newLevel);
 
-    if (newLevel = 2) {
+    if (newLevel === 2) {
         levelTwo();
-    } else if (newLevel = 3) {
+    } else if (newLevel === 3) {
         levelThree();
-    } else if (newLevel = 4) {
+    } else if (newLevel === 4) {
         levelFour();
-    } else if (newLevel = 5) {
+    } else if (newLevel === 5) {
         levelFive();
-    } else if (newLevel = 6) {
+    } else if (newLevel === 6) {
         levelSix();
-    } else if (newLevel = 7) {
+    } else if (newLevel === 7) {
         levelSeven();
-    } else if (newLevel = 8) {
+    } else if (newLevel === 8) {
         levelEight();
-    } else if (newLevel = 9) {
+    } else if (newLevel === 9) {
         levelNine();
-    } else if (newLevel = 10) {
+    } else if (newLevel === 10) {
         levelTen();
-    } else if (newLevel = 11) {
+    } else if (newLevel === 11) {
         levelEleven();
     } else {
         alert(`You have finished the game. Well done!`);
