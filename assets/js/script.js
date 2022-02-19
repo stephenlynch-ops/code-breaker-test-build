@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (this.getAttribute("data-type") === "submit"){
                 collectUsersAnswers();
             } else {
-                alert(`This is here in the event future buttons are added later on i.e. a button to change the difficulty`)
+                resetGame();
             }
         })
     }
@@ -54,6 +54,8 @@ function runGame(number) {
  */
 function levelOne() {
     
+    document.getElementById("level").innerText = 1;
+
     var number = 2;
     runGame(number);
 
@@ -224,4 +226,16 @@ function levelUpdate() {
 function clearOldAnswers() {
     document.getElementById("slot-four").value = "";
     document.getElementById("slot-five").value = "";
+}
+
+function resetGame() {
+    
+    let warning = "Confirm RESET game request";
+
+    if (confirm(warning) == true) {
+        levelOne();
+    } else {
+        alert(`Reset request cancelled`);
+    }
+
 }
