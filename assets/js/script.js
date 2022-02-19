@@ -2,7 +2,6 @@
 document.addEventListener("DOMContentLoaded", function() { 
     let buttons = document.getElementsByTagName("button");
 
-    //  let button of buttons is the modern version of a for loop with i++ etc.
     for(let button of buttons){
         button.addEventListener("click", function(){
             if (this.getAttribute("data-type") === "submit"){
@@ -12,12 +11,28 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         })
     }
+
+    document.getElementById("slot-four").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            collectUsersAnswers();
+        }
+    })
+    document.getElementById("slot-five").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            collectUsersAnswers();
+        }
+    })
+
     document.getElementById("level").innerText = 1;
     document.getElementById("slot-four").focus();
 
     runGame();
 })
 
+/**
+ * The runGame function generates the number pattern based on the level and populates the numbers
+ * in the DOM.
+ */
 function runGame() {
 
     console.log("---------------------New Game-------------------------");
@@ -39,6 +54,11 @@ function runGame() {
     console.log("Slor Five Expected ", slotFiveExpected);
 }
 
+/**
+ * The collectUserAnswers function collects the users inputs and compares them to the expected answers
+ * There are 2 error loops. One has actions if the user enters the incorrect answers. The second handles
+ * what to do if the user leaves one of the answer input boxes empty and clicks submit.
+ */
 function collectUsersAnswers() {
 
     // Calculate what the next two numbers should be
@@ -69,6 +89,10 @@ function collectUsersAnswers() {
         }    
 }
 
+/**
+ * The levelUpdate function prepares the game for the next level by updating the level marker in the DOM
+ * and starts the runGame function.
+ */
 function levelUpdate() {
 
     let level = parseInt(document.getElementById("level").innerText);

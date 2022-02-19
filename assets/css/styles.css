@@ -88,3 +88,36 @@ input {
     margin-bottom: 10px;
     font-family: 'Space Mono', monospace;
 }
+
+/* Leaderboard Section Styles */
+
+#leader-board {
+    margin-top: 15px;
+    box-sizing: border-box;
+    width: 80%;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    width: 100%;
+    border: 2px solid #ffffff;
+    border-collapse: collapse;
+}
+
+th {
+    font-size: small;
+}
+
+.rank {
+    width: 15%;
+}
+
+.name {
+    width: 60%;
+}
+
+.level-completed {
+    width: 25%;
+}
