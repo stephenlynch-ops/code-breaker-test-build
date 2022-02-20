@@ -111,6 +111,10 @@ table, th, td {
     border-collapse: collapse;
 }
 
+table{
+    margin-bottom: 15px;
+}
+
 th {
     font-size: small;
 }
@@ -125,4 +129,17 @@ td {
 
 .level-completed {
     width: 30%;
+}
+
+/* Footer Styles */
+
+#learn-more {
+    color: #ffffff;
+    font-style: italic;
+    margin: 2px;
+}
+
+#maths-is-fun{
+    color: #ffffff;
+    font-size: larger;
 }
