@@ -122,7 +122,7 @@ function clearOldAnswers() {
  */
 function resetGame() {
     
-    let warning = "Confirm RESET game request - NOTE: This will reset your game numbers as well";
+    let warning = "Confirm RESET game request";
 
     if (confirm(warning) == true) {
         gameFailed();
