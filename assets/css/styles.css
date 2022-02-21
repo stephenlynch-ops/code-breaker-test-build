@@ -28,7 +28,7 @@ body {
     font-size: small;
 }
 
-/* Game Play Section Styles */
+/* Game Board Section Styles */
 
 #game-board {
     background-color: #472d0a;
@@ -94,7 +94,7 @@ input {
     font-family: 'Space Mono', monospace;
 }
 
-/* Leaderboard Section Styles */
+/* Game History Section Styles */
 
 #game-history {
     margin-top: 15px;

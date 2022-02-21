@@ -1,4 +1,8 @@
-
+/**
+ * This initial code block is set to run once the DOM has loaded. It calls the user to enter
+ * their name. Identifies the buttons in the DOM. Allows the user to submit an answer by pressing the enter key
+ * It sets the game up at level 1 and calls the game to start.
+ */
 document.addEventListener("DOMContentLoaded", function() { 
 
     getPlayerName();
@@ -12,30 +16,30 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 resetGame();
             }
-        })
+        });
     }
 
     document.getElementById("slot-three").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             collectUsersAnswers();
         }
-    })
+    });
     document.getElementById("slot-four").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             collectUsersAnswers();
         }
-    })
+    });
     document.getElementById("slot-five").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             collectUsersAnswers();
         }
-    })
+    });
 
     document.getElementById("level").innerText = 1;
     document.getElementById("slot-three").focus();
 
     runGame();
-})
+});
 
 /**
  * The runGame function generates the number pattern based on the level and populates the numbers
@@ -81,13 +85,13 @@ function collectUsersAnswers() {
             clearOldAnswers();
             levelUpdate();
         } else {
-            alert(`Sorry thats not correct. The correct asnswers were ${slotThreeCorrect} , ${slotFourCorrect} and ${slotFiveCorrect}.`)
+            alert(`Sorry thats not correct. The correct asnswers were ${slotThreeCorrect} , ${slotFourCorrect} and ${slotFiveCorrect}.`);
             gameFailed();
         }    
 }
 
 /**
- * The levelUpdate function prepares the game for the next level by updating the level marker in the DOM
+ * The level update function prepares the game for the next level by updating the level marker in the DOM
  * and starts the runGame function.
  */
 function levelUpdate() {
@@ -135,7 +139,7 @@ function resetGame() {
 function gameFailed() {
     clearOldAnswers();
 
-    updateLeaderBoard();
+    updateGameHistory();
 
     getPlayerName();
 
@@ -145,6 +149,10 @@ function gameFailed() {
     runGame();
 }
 
+/**
+ * The get player name function prompts the user to input their name, so it can be
+ * logged in the game history section
+ */
 function getPlayerName() {
 
     var userName = prompt("Please enter you game name", "Anon");
@@ -152,7 +160,11 @@ function getPlayerName() {
 
 }
 
-function updateLeaderBoard() {
+/**
+ * The update game history function takes the users name and the level they reached and
+ * logs it to the table in the DOM. This gives the user something to try and improve on.
+ */
+function updateGameHistory() {
 
     let playerName = document.getElementById("player-name").innerText;
     let levelCompleted = parseInt(document.getElementById("level").innerText);

@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Code Cracker, maths based quiz game to test younger users who are learning their times tables">
+    <meta name="keywords" content="Code, Code Carcker, times tables, maths, mathes, numbers, test">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Code Cracker</title>
 </head>
 <body>
+    <!-- Page header section -->
     <section id="page-header">
         <div id="page-title-wrapper">
             <h1 id="page-title">Code Cracker</h1>
@@ -20,7 +23,8 @@
         </div>
     </section>
 
-    <section id="game=play-section">
+    <!-- Game board section -->
+    <section id="game-board-section">
         <div id="game-board">
             <div id="players-detail">Now Playing:
                 <span id="player-name">Player</span>
@@ -29,9 +33,9 @@
             <div id="number-input-section">
                 <div id="slot-one" class="number-input">X</div>
                 <div id="slot-two" class="number-input">X</div>
-                <input id="slot-three" class="number-input" type="number" placeholder="3rd No."></input>
-                <input id="slot-four" class="number-input" type="number" placeholder="4th No."></input>
-                <input id="slot-five" class="number-input" type="number" placeholder="5th No."></input>
+                <input id="slot-three" class="number-input" type="number" placeholder="3rd No.">
+                <input id="slot-four" class="number-input" type="number" placeholder="4th No.">
+                <input id="slot-five" class="number-input" type="number" placeholder="5th No.">
             </div>
 
             <div id="check-answer-wrapper">
@@ -39,12 +43,15 @@
             </div>
         </div>
     </section>
-
+    
+    <!-- Reset button section -->
     <section id="reset-button-wrapper">
+        <h3 class="board-headline">Click to reset game back to level 1</h3>
         <button data-type="reset" id="reset-button">Reset Game</button>
     </section>
 
-    <section id="leader-board-section">
+    <!-- Game history section -->
+    <section id="game-history-section">
         <h2 class="headline">Last Game(s) Score</h2>
         <table id="game-history">
             <tr>
@@ -53,8 +60,10 @@
             </tr>
         </table>
     </section>
+
+    <!-- Footer sections with link to further learning -->
     <footer>
-        <h3 id="learn-more">Do you want to learn more?</h2>
+        <h3 id="learn-more">Do you want to learn more?</h3>
         <a id="maths-is-fun" href="https://www.mathsisfun.com/tables.html" target="_blank">Click Me To See How Maths Is Fun!</a>
     </footer>
     <script src="assets/js/script.js"></script>
