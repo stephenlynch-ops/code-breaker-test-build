@@ -97,6 +97,8 @@ function levelUpdate() {
 
     document.getElementById("level").innerText = newLevel;
     
+    document.getElementById("slot-three").focus();
+
     runGame();
 }
 

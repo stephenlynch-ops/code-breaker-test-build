@@ -139,7 +139,13 @@ td {
     margin: 2px;
 }
 
-#maths-is-fun{
+#maths-is-fun { 
     color: #ffffff;
+    font-size: larger;
+}
+
+#maths-is-fun:hover {
+    background-color: #ffffff;
+    color: #000000;
     font-size: larger;
 }
