@@ -92,6 +92,23 @@ function collectUsersAnswers() {
 }
 
 /**
+ * This is the general reset function that is called when the player fails a level
+ * or if the user clicks the reset game button.
+ */
+ function gameFailed() {
+    clearOldAnswers();
+
+    updateGameHistory();
+
+    getPlayerName();
+
+    document.getElementById("level").innerText = 1;
+    document.getElementById("slot-three").focus();
+
+    runGame();
+}
+
+/**
  * The level update function prepares the game for the next level by updating the level marker in the DOM
  * and starts the runGame function.
  */
@@ -134,25 +151,8 @@ function resetGame() {
 }
 
 /**
- * This is the general reset function that is called when the player fails a level
- * or if the user clicks the reset game button.
- */
-function gameFailed() {
-    clearOldAnswers();
-
-    updateGameHistory();
-
-    getPlayerName();
-
-    document.getElementById("level").innerText = 1;
-    document.getElementById("slot-three").focus();
-
-    runGame();
-}
-
-/**
- * The get player name function prompts the user to input their name, so it can be
- * logged in the game history section.
+ * The get player name function checks if the same player is still playing and based on the answer
+ * it directs the code to either start a new game or request updated player name information.
  */
 function getPlayerName() {
 
@@ -164,6 +164,21 @@ function getPlayerName() {
         if (confirm(`Is ${currentPlayer} still playing?`) == false) {
             getInitialPlayerName();
         }
+    }
+}
+
+/**
+ * The get initial player name function is run when the game loads for the first time.
+ * This is done to get the initial players name before the first game begins.
+ */
+ function getInitialPlayerName() {
+
+    var userName = prompt("Please enter you game name", "Anon");
+
+    if (userName == "") {
+        document.getElementById("player-name").innerText = "Mr.E Player";
+    } else {
+        document.getElementById("player-name").innerText = userName;
     }
 }
 
@@ -186,19 +201,4 @@ function updateGameHistory() {
     cell1.innerHTML = playerName;
     cell2.innerHTML = levelCompleted;
     
-}
-
-/**
- * The get initial player name function is run when the game loads for the first time.
- * This is done to get the initial players name before the first game begins.
- */
-function getInitialPlayerName() {
-
-    var userName = prompt("Please enter you game name", "Anon");
-
-    if (userName == "") {
-        document.getElementById("player-name").innerText = "Mr.E Player";
-    } else {
-        document.getElementById("player-name").innerText = userName;
-    }
 }
