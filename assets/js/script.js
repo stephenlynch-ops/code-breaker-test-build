@@ -5,7 +5,7 @@
  */
 document.addEventListener("DOMContentLoaded", function() { 
 
-    getPlayerName();
+    getInitialPlayerName();
     
     let buttons = document.getElementsByTagName("button");
 
@@ -79,6 +79,7 @@ function collectUsersAnswers() {
     let slotFiveUserAnswer = parseInt(document.getElementById("slot-five").value);
 
         if ((document.getElementById("slot-three").value) == "" || (document.getElementById("slot-four").value) == "" || (document.getElementById("slot-five").value) == "" ){
+            alert(`You have not completed all of the missing parts of the code`);
             throw `User failed to complete the code. Aborting!`;
         } else if (slotThreeCorrect === slotThreeUserAnswer && slotFourCorrect === slotFourUserAnswer && slotFiveCorrect === slotFiveUserAnswer) {
             alert(`Thats correct. Well done. Lets move on to level ${levelNum}.`);
@@ -151,13 +152,19 @@ function gameFailed() {
 
 /**
  * The get player name function prompts the user to input their name, so it can be
- * logged in the game history section
+ * logged in the game history section.
  */
 function getPlayerName() {
 
-    var userName = prompt("Please enter you game name", "Anon");
-    document.getElementById("player-name").innerText = userName;
+    let currentPlayer = document.getElementById("player-name").innerText;
 
+    if (currentPlayer == "") {
+        getInitialPlayerName();
+    } else {
+        if (confirm(`Is ${currentPlayer} still playing?`) == false) {
+            getInitialPlayerName();
+        }
+    }
 }
 
 /**
@@ -179,4 +186,19 @@ function updateGameHistory() {
     cell1.innerHTML = playerName;
     cell2.innerHTML = levelCompleted;
     
+}
+
+/**
+ * The get initial player name function is run when the game loads for the first time.
+ * This is done to get the initial players name before the first game begins.
+ */
+function getInitialPlayerName() {
+
+    var userName = prompt("Please enter you game name", "Anon");
+
+    if (userName == "") {
+        document.getElementById("player-name").innerText = "Mr.E Player";
+    } else {
+        document.getElementById("player-name").innerText = userName;
+    }
 }

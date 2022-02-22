@@ -45,6 +45,7 @@ body {
 
 .board-headline {
     width: 100%;
+    margin: 5px;
 }
 
 #number-input-section {
@@ -81,6 +82,10 @@ input {
 
 #reset-button {
     margin: 10px;
+    width: 200px;
+    height: 40px;
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
 }
 
 #submit-answer {
@@ -92,6 +97,7 @@ input {
     margin-top: 15px;
     margin-bottom: 10px;
     font-family: 'Space Mono', monospace;
+    font-weight: bold;
 }
 
 /* Game History Section Styles */
@@ -132,6 +138,11 @@ td {
 }
 
 /* Footer Styles */
+
+#footer-section{
+    width: 100%;
+    margin-top: 10px;
+}
 
 #learn-more {
     color: #ffffff;
