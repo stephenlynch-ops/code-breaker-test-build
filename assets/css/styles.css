@@ -82,6 +82,12 @@ input {
     text-align: center;
 }
 
+.reset-headline {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #reset-button {
     margin: 10px;
     width: 200px;
