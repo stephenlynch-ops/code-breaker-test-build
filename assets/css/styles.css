@@ -89,7 +89,6 @@ input {
 }
 
 #reset-button {
-    margin: 10px;
     width: 200px;
     height: 40px;
     font-family: 'Space Mono', monospace;

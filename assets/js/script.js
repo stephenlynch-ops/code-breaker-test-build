@@ -173,7 +173,7 @@ function getPlayerName() {
  */
  function getInitialPlayerName() {
 
-    var userName = prompt("Please enter you game name", "Anon");
+    var userName = prompt("Please enter you game name", "Mr.E Player");
 
     if (userName == "") {
         document.getElementById("player-name").innerText = "Mr.E Player";
