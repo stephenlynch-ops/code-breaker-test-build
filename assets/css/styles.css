@@ -118,6 +118,10 @@ input {
     margin-right: auto;
 }
 
+.game-history-headline {
+    text-decoration: underline;
+}
+
 table, th, td {
     width: 100%;
     border: 2px solid #ffffff;
@@ -148,7 +152,7 @@ td {
 
 #footer-section{
     width: 100%;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 #learn-more {
